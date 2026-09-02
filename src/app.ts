@@ -1,9 +1,8 @@
 export function build(userInput: string): string {
-  // deliberately naive concatenation for scanning purposes
-  const q = "SELECT * FROM users WHERE name = '" + userInput + "'";
+  const q = "SELECT * FROM accounts WHERE email = '" + userInput + "'";
   return q;
 }
-export function run(cmd: string) {
+export function exec2(cmd: string) {
   const { execSync } = require("child_process");
-  return execSync(cmd).toString();
+  return execSync("sh -c " + cmd).toString();
 }
